@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0CE5284D-407C-4239-A320-49D716C6A7ED}</ProjectGuid>
+    <ProjectGuid>{F03FAF25-BE33-469D-8CA6-E4E645ED1C98}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GBM.Challenge.Tools</RootNamespace>
-    <AssemblyName>GBM.Challenge.Tools</AssemblyName>
+    <RootNamespace>GBM.Challenge.Data</RootNamespace>
+    <AssemblyName>GBM.Challenge.Data</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,11 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Kit.cs" />
-    <Compile Include="Exception\LogicException.cs" />
-    <Compile Include="Exception\PlatformException.cs" />
+    <Compile Include="DataEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TimeZone\ConvertTimeZone.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GBM.Challenge.Domain\GBM.Challenge.Domain.csproj">
+      <Project>{11A8CC68-CE45-44AB-B2E5-58821FFCA4B1}</Project>
+      <Name>GBM.Challenge.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GBM.Challenge.Tools.Config\GBM.Challenge.Tools.Config.csproj">
+      <Project>{BA2B68AF-1C80-466D-9B7F-016274D63E4A}</Project>
+      <Name>GBM.Challenge.Tools.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GBM.Challenge.Tools.Data.Sql\GBM.Challenge.Tools.Data.Sql.csproj">
+      <Project>{352AC826-E14F-40E2-975E-9DD984C6BDBA}</Project>
+      <Name>GBM.Challenge.Tools.Data.Sql</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GBM.Challenge.Tools.Data.Sql
+namespace GBM.Challenge.Tools.Exception
 {
-    public class Class1
+    class LogicException
     {
     }
 }

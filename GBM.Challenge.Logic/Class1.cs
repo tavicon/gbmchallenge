@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GBM.Challenge.Tools.Config
+namespace GBM.Challenge.Logic
 {
     public class Class1
     {
