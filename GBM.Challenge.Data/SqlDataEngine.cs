@@ -111,9 +111,13 @@ namespace GBM.Challenge.Data
                         var position = new GeographicalPosition();
 
                         position.Id = reader["Id"] == DBNull.Value ? Guid.Empty : Guid.Parse(reader["Id"].ToString());
+                        position.TaxyId = reader["TaxyId"] == DBNull.Value ? Guid.Empty : Guid.Parse(reader["TaxyId"].ToString());
+                        position.TravelId = reader["TravelId"] == DBNull.Value ? Guid.Empty : Guid.Parse(reader["TravelId"].ToString());
+                        position.DriverId = reader["DriverId"] == DBNull.Value ? Guid.Empty : Guid.Parse(reader["DriverId"].ToString());
                         position.Latitude = reader["Latitude"] == DBNull.Value ? "" : reader["Latitude"].ToString();
                         position.Longitude = reader["Longitude"] == DBNull.Value ? "" : reader["Longitude"].ToString();
                         position.RegistrationDate = reader["RegistrationDate"] == DBNull.Value ? DateTime.MinValue : Convert.ToDateTime(reader["RegistrationDate"]);
+
                         positions.Add(position);
                     }
 
