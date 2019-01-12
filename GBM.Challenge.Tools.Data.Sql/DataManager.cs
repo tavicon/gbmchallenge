@@ -172,49 +172,47 @@ namespace GBM.Challenge.Tools.Data.Sql
                 throw new ArgumentException(FAIL_ARGUMENT, "string commandText");
             }
 
-            using (SqlConnection sqlCnnctn = new SqlConnection(this.connectionString))
+            SqlConnection sqlCnnctn = new SqlConnection(this.connectionString);
+            SqlDataReader reader = null;
+            try
             {
-                SqlDataReader reader = null;
-                try
+                using (SqlCommand sqlCmmnd = sqlCnnctn.CreateCommand())
                 {
-                    using (SqlCommand sqlCmmnd = sqlCnnctn.CreateCommand())
+                    sqlCmmnd.CommandType = CommandType.StoredProcedure;
+                    sqlCmmnd.CommandText = commandText;
+                    sqlCmmnd.CommandTimeout = Convert.ToInt32(commandTimeout.TotalSeconds);
+                    if (parameters != null)
                     {
-                        sqlCmmnd.CommandType = CommandType.StoredProcedure;
-                        sqlCmmnd.CommandText = commandText;
-                        sqlCmmnd.CommandTimeout = Convert.ToInt32(commandTimeout.TotalSeconds);
-                        if (parameters != null)
+                        foreach (IDataParameter parameter in parameters)
                         {
-                            foreach (IDataParameter parameter in parameters)
-                            {
-                                sqlCmmnd.Parameters.Add(parameter);
-                            }
+                            sqlCmmnd.Parameters.Add(parameter);
                         }
-
-                        RetryPolicy retryPolicyConnection = RetryManager.Instance.GetDefaultSqlConnectionRetryPolicy();
-                        (retryPolicyConnection ?? RetryPolicy.NoRetry).ExecuteAction(() =>
-                        {
-                            sqlCnnctn.Open();
-                        });
-
-                        RetryPolicy retryPolicyCommand = RetryManager.Instance.GetDefaultSqlCommandRetryPolicy();
-                        (retryPolicyCommand ?? RetryPolicy.NoRetry).ExecuteAction(() =>
-                        {
-                            reader = sqlCmmnd.ExecuteReader(CommandBehavior.CloseConnection);
-                        });
-                        
-                        return reader;
                     }
-                }
-                catch (System.Exception sqlEx)
-                {
-                    if (sqlCnnctn.State == ConnectionState.Open)
+
+                    RetryPolicy retryPolicyConnection = RetryManager.Instance.GetDefaultSqlConnectionRetryPolicy();
+                    (retryPolicyConnection ?? RetryPolicy.NoRetry).ExecuteAction(() =>
                     {
-                        sqlCnnctn.Close();
-                        sqlCnnctn.Dispose();
-                    }
+                        sqlCnnctn.Open();
+                    });
 
-                    throw new PlatformException(sqlEx.Message, sqlEx);
+                    RetryPolicy retryPolicyCommand = RetryManager.Instance.GetDefaultSqlCommandRetryPolicy();
+                    (retryPolicyCommand ?? RetryPolicy.NoRetry).ExecuteAction(() =>
+                    {
+                        reader = sqlCmmnd.ExecuteReader(CommandBehavior.CloseConnection);
+                    });
+
+                    return reader;
                 }
+            }
+            catch (System.Exception sqlEx)
+            {
+                if (sqlCnnctn.State == ConnectionState.Open)
+                {
+                    sqlCnnctn.Close();
+                    sqlCnnctn.Dispose();
+                }
+
+                throw new PlatformException(sqlEx.Message, sqlEx);
             }
         }
 

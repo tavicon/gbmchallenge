@@ -1,12 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
+using System.Security.Permissions;
 
 namespace GBM.Challenge.Tools.Exception
 {
-    class LogicException
+    [Serializable]
+    public class LogicException : System.Exception, ISerializable
     {
+        public LogicException(string message)
+            : base(message)
+        {
+        }
+
+        public LogicException(string message, System.Exception innerException)
+            : base(message, innerException)
+        {
+        }
+
+        [SecurityPermissionAttribute(SecurityAction.Demand, SerializationFormatter = true)]
+        public override void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            base.GetObjectData(info, context);
+        }
     }
 }

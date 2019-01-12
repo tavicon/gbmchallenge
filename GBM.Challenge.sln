@@ -40,6 +40,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBM.Challenge.Logic", "GBM.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBM.Challenge.Data", "GBM.Challenge.Data\GBM.Challenge.Data.csproj", "{F03FAF25-BE33-469D-8CA6-E4E645ED1C98}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBM.Challenge.Tools.Data.Config", "GBM.Challenge.Tools.Data.Config\GBM.Challenge.Tools.Data.Config.csproj", "{C0DB8FFB-5566-4D4E-800C-258D5A364183}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -92,6 +94,10 @@ Global
 		{F03FAF25-BE33-469D-8CA6-E4E645ED1C98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F03FAF25-BE33-469D-8CA6-E4E645ED1C98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F03FAF25-BE33-469D-8CA6-E4E645ED1C98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0DB8FFB-5566-4D4E-800C-258D5A364183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0DB8FFB-5566-4D4E-800C-258D5A364183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0DB8FFB-5566-4D4E-800C-258D5A364183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0DB8FFB-5566-4D4E-800C-258D5A364183}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,6 +114,7 @@ Global
 		{11A8CC68-CE45-44AB-B2E5-58821FFCA4B1} = {198FF09A-4FCA-4642-9550-17C12BF50774}
 		{4684D46F-0864-4483-928B-68B437F03EA2} = {198FF09A-4FCA-4642-9550-17C12BF50774}
 		{F03FAF25-BE33-469D-8CA6-E4E645ED1C98} = {198FF09A-4FCA-4642-9550-17C12BF50774}
+		{C0DB8FFB-5566-4D4E-800C-258D5A364183} = {6B43B560-2786-47D3-A8EB-F2803B6AF007}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45

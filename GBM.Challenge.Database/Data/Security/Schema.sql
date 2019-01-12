@@ -1,0 +1,5 @@
+﻿
+USE [GBMChallengeDB]
+GO
+
+CREATE SCHEMA [gbm] AUTHORIZATION [dbo];

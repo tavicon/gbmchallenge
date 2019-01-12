@@ -85,9 +85,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\GeolocationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ApiResponse.cs" />
+    <Compile Include="Models\RequestGetPositionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -101,8 +104,28 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GBM.Challenge.Domain\GBM.Challenge.Domain.csproj">
+      <Project>{11A8CC68-CE45-44AB-B2E5-58821FFCA4B1}</Project>
+      <Name>GBM.Challenge.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GBM.Challenge.Logic\GBM.Challenge.Logic.csproj">
+      <Project>{4684D46F-0864-4483-928B-68B437F03EA2}</Project>
+      <Name>GBM.Challenge.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GBM.Challenge.Tools.Data.Config\GBM.Challenge.Tools.Data.Config.csproj">
+      <Project>{C0DB8FFB-5566-4D4E-800C-258D5A364183}</Project>
+      <Name>GBM.Challenge.Tools.Data.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GBM.Challenge.Tools.Logger\GBM.Challenge.Tools.Logger.csproj">
+      <Project>{80C09112-4DB9-49DE-87B0-E44FE7C20047}</Project>
+      <Name>GBM.Challenge.Tools.Logger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GBM.Challenge.Tools\GBM.Challenge.Tools.csproj">
+      <Project>{0CE5284D-407C-4239-A320-49D716C6A7ED}</Project>
+      <Name>GBM.Challenge.Tools</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

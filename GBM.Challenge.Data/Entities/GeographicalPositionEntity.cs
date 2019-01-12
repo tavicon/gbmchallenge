@@ -1,9 +1,10 @@
 ﻿using GBM.Challenge.Domain.Contracts;
+using Microsoft.WindowsAzure.Storage.Table;
 using System;
 
-namespace GBM.Challenge.Domain.Models
+namespace GBM.Challenge.Data.Entities
 {
-    public class GeographicalPosition : IGeographicalPosition
+    public class GeographicalPositionEntity : TableEntity, IGeographicalPosition
     {
         public Guid Id { get; set; }
         public Guid TaxyId { get; set; }
@@ -13,8 +14,8 @@ namespace GBM.Challenge.Domain.Models
         public string Longitude { get; set; }
         public DateTime RegistrationDate { get; set; }
 
-        public GeographicalPosition() { }
-        public GeographicalPosition(IGeographicalPosition position)
+        public GeographicalPositionEntity() { }
+        public GeographicalPositionEntity(IGeographicalPosition position)
         {
             this.Id = position.Id;
             this.TaxyId = position.TaxyId;
@@ -23,6 +24,8 @@ namespace GBM.Challenge.Domain.Models
             this.Latitude = position.Latitude;
             this.Longitude = position.Longitude;
             this.RegistrationDate = position.RegistrationDate;
+            this.PartitionKey = position.TravelId.ToString().ToUpperInvariant();
+            this.RowKey = position.TaxyId.ToString().ToUpperInvariant();
         }
     }
 }

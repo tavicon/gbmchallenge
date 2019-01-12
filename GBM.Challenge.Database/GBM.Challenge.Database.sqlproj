@@ -59,5 +59,16 @@
     <Folder Include="Properties" />
     <Folder Include="Tables" />
     <Folder Include="Stored Procedures" />
+    <Folder Include="Data" />
+    <Folder Include="Data\Security" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\PositionHistory.sql" />
+    <Build Include="Stored Procedures\GetPositionsByTravelHistory.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\Database.sql" />
+    <None Include="Data\Security\Schema.sql" />
+    <None Include="Stored Procedures\SetPositionHistory.sql" />
   </ItemGroup>
 </Project>
