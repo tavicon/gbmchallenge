@@ -67,7 +67,7 @@
     <Build Include="Stored Procedures\GetPositionsByTravelHistory.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Data\Database.sql" />
+    <None Include="Data\GBMChallengeDB.sql" />
     <None Include="Data\Security\Schema.sql" />
     <None Include="Stored Procedures\SetPositionHistory.sql" />
   </ItemGroup>
