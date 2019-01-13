@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{F640463C-92CC-4205-87E6-36A318E6A928}"
 	ProjectSection(SolutionItems) = preProject
 		..\..\..\Documents\BACK-END - You´ve been challenged! [3095].pdf = ..\..\..\Documents\BACK-END - You´ve been challenged! [3095].pdf
+		..\..\..\Pictures\Diagrama DB.PNG = ..\..\..\Pictures\Diagrama DB.PNG
+		..\..\..\Documents\ESPECIFÍCACIÓN.docx = ..\..\..\Documents\ESPECIFÍCACIÓN.docx
+		..\..\..\Documents\EVIDENCIAS Challenge GBM.docx = ..\..\..\Documents\EVIDENCIAS Challenge GBM.docx
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Architecture", "Architecture", "{40556BC1-5858-4050-9ECF-069DD072BC03}"
