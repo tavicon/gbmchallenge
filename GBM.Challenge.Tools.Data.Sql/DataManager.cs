@@ -68,11 +68,11 @@ namespace GBM.Challenge.Tools.Data.Sql
             return providerName;
         }
 
-        public void AbrirConexion()
+        public void OpenConnection()
         {
-            RetryPolicy retryPolicyConexion = RetryManager.Instance.GetDefaultSqlConnectionRetryPolicy();
+            RetryPolicy retryPolicyConnection = RetryManager.Instance.GetDefaultSqlConnectionRetryPolicy();
 
-            (retryPolicyConexion ?? RetryPolicy.NoRetry).ExecuteAction(() =>
+            (retryPolicyConnection ?? RetryPolicy.NoRetry).ExecuteAction(() =>
             {
                 if (this.connection == null)
                 {

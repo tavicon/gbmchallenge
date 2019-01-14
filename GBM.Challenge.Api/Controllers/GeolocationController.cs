@@ -82,7 +82,7 @@ namespace GBM.Challenge.Api.Controllers
 
         [HttpPost]
         [Route("coordinates/current")]
-        public async Task<IHttpActionResult> GetCurrentPosition(HttpRequestMessage request)
+        public async Task<IHttpActionResult> PostCurrentPosition(HttpRequestMessage request)
         {
             Stream streamContent = await request.Content.ReadAsStreamAsync();
             streamContent.Seek(0, SeekOrigin.Begin);
@@ -126,7 +126,7 @@ namespace GBM.Challenge.Api.Controllers
 
         [HttpPost]
         [Route("coordinates/history")]
-        public async Task<IHttpActionResult> GetPositionsByTravelHistory(HttpRequestMessage request)
+        public async Task<IHttpActionResult> PostPositionsByTravelHistory(HttpRequestMessage request)
         {
             Stream streamContent = await request.Content.ReadAsStreamAsync();
             streamContent.Seek(0, SeekOrigin.Begin);
